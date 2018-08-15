@@ -20,7 +20,7 @@
 #     MIN_PERL_VERSION => q[5.006]
 #     NAME => q[Authen::Passphrase::Argon2]
 #     PL_FILES => {  }
-#     PREREQ_PM => { Authen::Passphrase=>q[0.008], Carp=>q[0], Crype::Argon2=>q[0.005], Data::GUID=>q[0.049], Mime::Base64=>q[0], Syntax::Construct=>q[1.004], Test::More=>q[0] }
+#     PREREQ_PM => { Authen::Passphrase=>q[0.008], Carp=>q[0], Crypt::Argon2=>q[0.005], Data::GUID=>q[0.049], Mime::Base64=>q[0], Syntax::Construct=>q[1.004], Test::More=>q[0] }
 #     TEST_REQUIRES => {  }
 #     VERSION_FROM => q[lib/Authen/Passphrase/Argon2.pm]
 #     clean => { FILES=>q[Authen-Passphrase-Argon2-*] }
@@ -63,11 +63,11 @@ DIRFILESEP = /
 DFSEP = $(DIRFILESEP)
 NAME = Authen::Passphrase::Argon2
 NAME_SYM = Authen_Passphrase_Argon2
-VERSION = 0.03
+VERSION = 0.04
 VERSION_MACRO = VERSION
-VERSION_SYM = 0_03
+VERSION_SYM = 0_04
 DEFINE_VERSION = -D$(VERSION_MACRO)=\"$(VERSION)\"
-XS_VERSION = 0.03
+XS_VERSION = 0.04
 XS_VERSION_MACRO = XS_VERSION
 XS_DEFINE_VERSION = -D$(XS_VERSION_MACRO)=\"$(XS_VERSION)\"
 INST_ARCHLIB = blib/arch
@@ -262,7 +262,7 @@ RCS_LABEL = rcs -Nv$(VERSION_SYM): -q
 DIST_CP = best
 DIST_DEFAULT = tardist
 DISTNAME = Authen-Passphrase-Argon2
-DISTVNAME = Authen-Passphrase-Argon2-0.03
+DISTVNAME = Authen-Passphrase-Argon2-0.04
 
 
 # --- MakeMaker macro section:
@@ -509,14 +509,14 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) 'requires:' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Authen::Passphrase: '\''0.008'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Carp: '\''0'\''' >> META_new.yml
-	$(NOECHO) $(ECHO) '  Crype::Argon2: '\''0.005'\''' >> META_new.yml
+	$(NOECHO) $(ECHO) '  Crypt::Argon2: '\''0.005'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Data::GUID: '\''0.049'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Mime::Base64: '\''0'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Syntax::Construct: '\''1.004'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) '  perl: '\''5.006'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) 'resources:' >> META_new.yml
 	$(NOECHO) $(ECHO) '  repository: https://github.com/ThisUsedToBeAnEmail/Authen-Passphrase-Argon2.git' >> META_new.yml
-	$(NOECHO) $(ECHO) 'version: '\''0.03'\''' >> META_new.yml
+	$(NOECHO) $(ECHO) 'version: '\''0.04'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) 'x_contributors:' >> META_new.yml
 	$(NOECHO) $(ECHO) '  - '\''Alexander Hartmaier <abraxxa@cpan.org>'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) '  - "Lars DÉªá´\x87á´\x84á´\x8Bá´\x8Fá´¡ è¿ªæ\x8B\x89æ\x96¯ <daxim@cpan.org>"' >> META_new.yml
@@ -559,7 +559,7 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '         "requires" : {' >> META_new.json
 	$(NOECHO) $(ECHO) '            "Authen::Passphrase" : "0.008",' >> META_new.json
 	$(NOECHO) $(ECHO) '            "Carp" : "0",' >> META_new.json
-	$(NOECHO) $(ECHO) '            "Crype::Argon2" : "0.005",' >> META_new.json
+	$(NOECHO) $(ECHO) '            "Crypt::Argon2" : "0.005",' >> META_new.json
 	$(NOECHO) $(ECHO) '            "Data::GUID" : "0.049",' >> META_new.json
 	$(NOECHO) $(ECHO) '            "Mime::Base64" : "0",' >> META_new.json
 	$(NOECHO) $(ECHO) '            "Syntax::Construct" : "1.004",' >> META_new.json
@@ -575,7 +575,7 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '         "web" : "https://github.com/ThisUsedToBeAnEmail/Authen-Passphrase-Argon2"' >> META_new.json
 	$(NOECHO) $(ECHO) '      }' >> META_new.json
 	$(NOECHO) $(ECHO) '   },' >> META_new.json
-	$(NOECHO) $(ECHO) '   "version" : "0.03",' >> META_new.json
+	$(NOECHO) $(ECHO) '   "version" : "0.04",' >> META_new.json
 	$(NOECHO) $(ECHO) '   "x_contributors" : [' >> META_new.json
 	$(NOECHO) $(ECHO) '      "Alexander Hartmaier <abraxxa@cpan.org>",' >> META_new.json
 	$(NOECHO) $(ECHO) '      "Lars DÉªá´á´á´á´á´¡ è¿ªææ¯ <daxim@cpan.org>"' >> META_new.json
@@ -889,14 +889,14 @@ testdb_static :: static pure_all
 # --- MakeMaker ppd section:
 # Creates a PPD (Perl Package Description) for a binary distribution.
 ppd :
-	$(NOECHO) $(ECHO) '<SOFTPKG NAME="Authen-Passphrase-Argon2" VERSION="0.03">' > Authen-Passphrase-Argon2.ppd
+	$(NOECHO) $(ECHO) '<SOFTPKG NAME="Authen-Passphrase-Argon2" VERSION="0.04">' > Authen-Passphrase-Argon2.ppd
 	$(NOECHO) $(ECHO) '    <ABSTRACT>Store and check password using Argon2</ABSTRACT>' >> Authen-Passphrase-Argon2.ppd
 	$(NOECHO) $(ECHO) '    <AUTHOR>lnation &lt;thisusedtobeanemail@gmail.com&gt;</AUTHOR>' >> Authen-Passphrase-Argon2.ppd
 	$(NOECHO) $(ECHO) '    <IMPLEMENTATION>' >> Authen-Passphrase-Argon2.ppd
 	$(NOECHO) $(ECHO) '        <PERLCORE VERSION="5,006,0,0" />' >> Authen-Passphrase-Argon2.ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Authen::Passphrase" VERSION="0.008" />' >> Authen-Passphrase-Argon2.ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Carp::" />' >> Authen-Passphrase-Argon2.ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Crype::Argon2" VERSION="0.005" />' >> Authen-Passphrase-Argon2.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Crypt::Argon2" VERSION="0.005" />' >> Authen-Passphrase-Argon2.ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Data::GUID" VERSION="0.049" />' >> Authen-Passphrase-Argon2.ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Mime::Base64" />' >> Authen-Passphrase-Argon2.ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Syntax::Construct" VERSION="1.004" />' >> Authen-Passphrase-Argon2.ppd
