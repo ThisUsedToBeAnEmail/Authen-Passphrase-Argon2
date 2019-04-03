@@ -11,7 +11,7 @@ use Syntax::Construct qw( ?<> /a );
 
 use parent 'Authen::Passphrase';
 
-our $VERSION = '0.04';
+our $VERSION = '0.06';
 
 our (%salts, %hashes, @argons);
 BEGIN {
@@ -25,7 +25,6 @@ BEGIN {
 	%salts = (
 		salt => sub {
 			$_[0] = $salts{salt_random}() if "$_[0]" eq 'random';
-			use Data::Dumper;
 			$_[0] =~ m#\A[\x00-\xff]{6}.*\z#
 				or croak sprintf("%s is not a valid raw salt", $_[0]);
 			$_[0];
@@ -196,7 +195,7 @@ Authen::Passphrase::Argon2 - Store and check password using Argon2
 
 =head1 VERSION
 
-Version 0.04
+Version 0.06
 
 =cut
 

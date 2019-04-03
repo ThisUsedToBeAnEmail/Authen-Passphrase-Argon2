@@ -36,7 +36,8 @@ WriteMakefile(
 		},
 		x_contributors => [
 			'Alexander Hartmaier <abraxxa@cpan.org>',
-			'Lars Dɪᴇᴄᴋᴏᴡ 迪拉斯 <daxim@cpan.org>'
+			'Lars Dɪᴇᴄᴋᴏᴡ 迪拉斯 <daxim@cpan.org>',
+			'Wesley Schwengle <waterkip@cpan.org>'
 		],
 	},
 	dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
